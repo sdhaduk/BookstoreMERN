@@ -1,11 +1,21 @@
 import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
-import bookRoutes from "./routes/bookRoutes.js"
+import bookRoutes from "./routes/bookRoutes.js";
+import cors from "cors";
+
+
 
 const app = express();
 
 app.use(express.json());
+app.use(
+    cors({
+        origin: "http://localhost:5000",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type"]
+    })
+);
 
 mongoose
     .connect(process.env.MONGODBURL)
