@@ -42,4 +42,4 @@ const DeleteBook = () => {
   )
 }
 
-export default DeleteBook
+export default DeleteBook;
